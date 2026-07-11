@@ -11,11 +11,14 @@ app.get("/fetch", async (req,res) => {
     
     try {
         const response = await fetch(uri);
-        const data = response.text;
+        const data = await response.text();
         res.send(data);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 })
 
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("Listening!")
+});
