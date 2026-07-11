@@ -4,5 +4,6 @@
 ![](https://img.shields.io/badge/✅-Online-green)
 
 CORS Proxy, Free, Node 24+.
+
 Runs on Render Free.
 
