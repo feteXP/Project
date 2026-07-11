@@ -20,8 +20,8 @@ app.get("/fetch", async (req,res) => {
 })
 
 const limiter = rateLimit({
-    windowMs: 60 * 1000,
-    max: 10,
+    windowMs: 10 * 1000,
+    max: 5,
     message: {
         error: "Too many requests. Try again later."
     }
