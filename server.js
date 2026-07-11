@@ -10,7 +10,7 @@ app.get("/fetch", async (req,res) => {
     }
     
     try {
-        const response = await fetch(url);
+        const response = await fetch(uri);
         const data = response.text;
         res.send(data);
     } catch (err) {
