@@ -1,4 +1,5 @@
 const express = require("express");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 
@@ -18,7 +19,17 @@ app.get("/fetch", async (req,res) => {
     }
 })
 
+const limiter = rateLimit({
+    windowMs: 60 * 1000,
+    max: 10,
+    message: {
+        error: "Too many requests. Try again later."
+    }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log("Listening!")
 });
+
+app.use("/fetch", limiter);
