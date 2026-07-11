@@ -34,8 +34,3 @@ app.listen(PORT, () => {
 
 app.use("/fetch", limiter);
 
-// Redeployer
-
-setTimeout(() => {
-    fetch(process.env.DEPLOYURL)
-}, 90 * 1000)
