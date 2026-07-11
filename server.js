@@ -1,5 +1,6 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
+const cors = require("cors");
 
 const app = express();
 
@@ -12,6 +13,7 @@ const limiter = rateLimit({
 });
 
 app.use("/fetch", limiter);
+app.use(cors());
 
 app.get("/fetch", async (req, res) => {
     const uri = req.query.url;
