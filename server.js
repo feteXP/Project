@@ -45,7 +45,7 @@ app.post("/fetch", async (req, res) => {
     }
 
     try {
-        const response = await fetch(uri);
+        const response = await fetch(uri, {method: "POST"});
         const data = await response.text();
 
         res.send(data);
